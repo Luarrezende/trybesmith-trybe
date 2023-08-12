@@ -5,4 +5,6 @@ const router = Router();
 
 router.post('/', productsController.createProduct);
 
+router.get('/', productsController.getAll);
+
 export default router;

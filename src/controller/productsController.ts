@@ -10,6 +10,13 @@ async function createProduct(req: Request, res: Response): Promise<Response> {
   return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data);
 }
 
+async function getAll(req: Request, res: Response): Promise<Response> {
+  const serviceResponse = await productsService.getAll();
+
+  return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data);
+}
+
 export default {
   createProduct,
+  getAll,
 };
