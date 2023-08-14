@@ -4,7 +4,6 @@ import mapStatusHTTP from '../utils/mapStatusHTTP';
 
 async function loginUser(req: Request, res: Response): Promise<Response> {
   const bodyValues = req.body;
-  console.log(bodyValues);
 
   const serviceResponse = await loginService.loginUser(bodyValues);
 
