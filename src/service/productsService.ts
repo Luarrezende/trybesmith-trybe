@@ -21,21 +21,12 @@ async function createProduct(bodyValues: Product): Promise<ServiceResponse<Produ
 }
 
 async function getAll(): Promise<ServiceResponse<Array<object>>> {
-  try {
-    const products = await ProductModel.findAll();
+  const products = await ProductModel.findAll();
 
-    return {
-      status: 'SUCCESSFUL',
-      data: products,
-    };
-  } catch (error) {
-    console.error('Error get product:', error);
-    const serviceResponseError: ServiceResponse<ServiceResponseError> = {
-      status: 'INVALID_DATA',
-      data: { message: 'Could not create product' },
-    };
-    return serviceResponseError;
-  }
+  return {
+    status: 'SUCCESSFUL',
+    data: products,
+  };
 }
 
 export default {
