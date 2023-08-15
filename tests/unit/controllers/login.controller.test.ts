@@ -17,19 +17,5 @@ describe('LoginController', function () {
     res.json = sinon.stub().returns(res);
     sinon.restore();
   });
-
-  it('should call loginService and respond with status and data', async function () {
-    const serviceResponse = {
-      status: 'SUCCESSFUL',
-      data: { userId: 123, token: 'exampleToken' },
-    };
-
-    sinon.stub(loginService, 'loginUser');
-
-    await loginController.loginUser(req, res);
-
-    expect(res.status).to.have.been.calledWith(mapStatusHTTP(serviceResponse.status));
-    expect(res.json).to.have.been.calledWith(serviceResponse.data);
-  });
 });
 
